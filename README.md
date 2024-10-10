@@ -1,32 +1,31 @@
-
 # Lightning Discharge Modeling
 
 This repository contains a Python implementation for modeling atmospheric discharge currents based on the equation:
 
-\[
+$$
 i(t) = Amp \times \left( e^{At} - e^{Bt} \right)
-\]
+$$
 
 ## Overview
 
-The equation above is commonly used in the modeling of lightning discharges. It describes the current \( i(t) \) at a given time \( t \), where:
+The equation above is commonly used in the modeling of lightning discharges. It describes the current $ i(t) $ at a given time $ t $, where:
 
-- \( Amp \) is the peak amplitude of the current,
-- \( A \) and \( B \) are constants that define the behavior of the exponential decay and rise of the current.
+- $ Amp $ is the peak amplitude of the current,
+- $ A $ and $ B $ are constants that define the behavior of the exponential decay and rise of the current.
 
-The current follows a typical lightning discharge profile, which starts with a rapid increase in current followed by an exponential decay. The constants \( A \) and \( B \) are crucial to capturing this behavior, and their accurate determination is essential for realistic simulations.
+The current follows a typical lightning discharge profile, which starts with a rapid increase in current followed by an exponential decay. The constants $ A $ and $ B $ are crucial to capturing this behavior, and their accurate determination is essential for realistic simulations.
 
 ## Code Description
 
-This Python code calculates the constants \( A \) and \( B \) and adjusts the peak current based on the provided input values for the time of the peak current \( t_{pico} \), half-life \( t_{meia} \), and the peak current \( i_{pico} \). The calculation is done iteratively to achieve a precise match for the desired discharge characteristics.
+This Python code calculates the constants $ A $ and $ B $ and adjusts the peak current based on the provided input values for the time of the peak current $ t_{pico} $, half-life $ t_{meia} $, and the peak current $ i_{pico} $. The calculation is done iteratively to achieve a precise match for the desired discharge characteristics.
 
 ### Key Components:
 
 - **`CalcAB(iPico, tPico, tMetade, amp)`**:
-  This function calculates the constants \( A \), \( B \), and the time \( t_p \) when the current reaches its peak.
+  This function calculates the constants $ A $, $ B $, and the time $ t_p $ when the current reaches its peak.
 
 - **Iterative Adjustment**:
-  The peak time \( t_p \) is adjusted iteratively to refine the values of \( A \) and \( B \) until the desired precision is achieved.
+  The peak time $ t_p $ is adjusted iteratively to refine the values of $ A $ and $ B $ until the desired precision is achieved.
 
 ### Example Usage:
 
@@ -46,7 +45,7 @@ def main():
     print(f'Amp = {amp0:.0f}\nA = {A:.0f}\nB = {B:.0f}')
 ```
 
-This script allows you to compute the values of \( A \) and \( B \) iteratively, ensuring an accurate model of the lightning current over time.
+This script allows you to compute the values of $ A $ and $ B $ iteratively, ensuring an accurate model of the lightning current over time.
 
 ## Credits
 
